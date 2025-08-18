@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AppSettings>
+	<WindowWidth>1280</WindowWidth>
+	<WindowHeight>720</WindowHeight>
+	<BackgroundTheme>Default-Dark</BackgroundTheme>
+	<FacilityName>DefaultFacilityName</FacilityName>
+	<FacilityId>001</FacilityId>
+</AppSettings>

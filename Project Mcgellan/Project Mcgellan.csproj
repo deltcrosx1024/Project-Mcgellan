@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <RootNamespace>Project_Mcgellan</RootNamespace>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\app_icon.ico" />
+    </ItemGroup>
+    <ItemGroup>
+        <Resource Include="Assets\app_icon.ico" />
+		<Resource Include="Settings.xml"/>
+    </ItemGroup>
+
+</Project>
