@@ -5,40 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Mcgellan"
         mc:Ignorable="d"
-        Title="MainWindow" Style="{DynamicResource MainWindowStyle}"
+        Style="{DynamicResource MainWindowStyle}"
+        Title="Project Mcgellan"
         WindowStartupLocation="CenterScreen">
-    <DockPanel Background="{DynamicResource DefaultDark}">
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Options">
-                <MenuItem Header="Settings" Click="SettingsMenuItem_Click"/>
-            </MenuItem>
-            <MenuItem Header="Home"/>
-            <MenuItem Header="Sales">
-                <MenuItem Header="Product List"/>
-                <MenuItem Header="Import Inventory"/>
-                <MenuItem Header="Export Inventory"/>
-                <MenuItem Header="Payment Options"/>
-            </MenuItem>
-            <MenuItem Header="Warehouse">
-                <!--Code Goes Here-->
-                <MenuItem Header="Warehouse Management"/>
-                <MenuItem Header="Categories"/>
-                <MenuItem Header="Location Prefix"/>
-            </MenuItem>
-            <MenuItem Header="Users" />
-            <MenuItem Header="Statistics">
-                <MenuItem Header="Sales Statistics"/>
-                <MenuItem Header="Warehouse I/O Statistics"/>
-                <MenuItem Header="Overview"/>
-            </MenuItem>
-        </Menu>
-        <TabControl>
-            <TabItem Header="Tab1">
-                <!--Tab Contents for tab 1-->
-            </TabItem>
-            <TabItem Header="Tab2">
-                <!--Tab Contents for tab 2-->
-            </TabItem>
-        </TabControl>
-    </DockPanel>
+    <Border Background="{DynamicResource Default-Dark}" CornerRadius="8" Margin="0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="TitleBar" Background="{DynamicResource Default-Dark}" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="5" Background="{DynamicResource Default-Dark}">
+                    <Image Source="/Assets/app_icon.ico" Width="20" Height="20" Margin="5,0"/>
+                    <Menu Background="Transparent" Foreground="White">
+                        <MenuItem Header="_File">
+                        </MenuItem>
+                        <MenuItem Header="_Edit">
+                        </MenuItem>
+                    </Menu>
+                </StackPanel>
+
+                <DockPanel Background="{DynamicResource Default-Dark}">
+                    <Menu DockPanel.Dock="Top" Background="{DynamicResource Default-Dark}" Foreground="White">
+                        <MenuItem Header="Home"/>
+                        <MenuItem Header="Options">
+                            <MenuItem Header="Settings" Click="SettingsMenuItem_Click"/>
+                        </MenuItem>
+                        <MenuItem Header="Sales">
+                            <MenuItem Header="Product List"/>
+                            <MenuItem Header="Import Inventory"/>
+                            <MenuItem Header="Export Inventory"/>
+                            <MenuItem Header="Payment Options"/>
+                        </MenuItem>
+                        <MenuItem Header="Warehouse">
+                            <!--Code Goes Here-->
+                            <MenuItem Header="Warehouse Management"/>
+                            <MenuItem Header="Categories"/>
+                            <MenuItem Header="Location Prefix"/>
+                        </MenuItem>
+                        <MenuItem Header="Users" />
+                        <MenuItem Header="Statistics">
+                            <MenuItem Header="Sales Statistics"/>
+                            <MenuItem Header="Warehouse I/O Statistics"/>
+                            <MenuItem Header="Overview"/>
+                        </MenuItem>
+                    </Menu>
+                </DockPanel>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MinimizeButton" Content="-" Width="30" Height="30" Click="MinimizeButton_Click"/>
+                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MaximizeButton" Content="🗖" Width="30" Height="30" Click="MaximizeButton_Click"/>
+                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="CloseButton" Content="X" Width="30" Height="30" Click="CloseButton_Click"/>
+                </StackPanel>
+            </Grid>
+            
+        </Grid>
+        
+    </Border>
 </Window>

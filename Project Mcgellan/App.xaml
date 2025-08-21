@@ -13,10 +13,11 @@
                    TargetType="{x:Type Window}">
                 <Setter Property="Width" Value="{Binding windowWidth}"/>
                 <Setter Property="Height" Value="{Binding windowHeight}"/>
-                <Setter Property="WindowStyle" Value="SingleBorderWindow"/>
-                <Setter Property="ResizeMode" Value="CanResize"/>
+                <Setter Property="WindowStyle" Value="None"/>
+                <Setter Property="ResizeMode" Value="CanResizeWithGrip"/>
                 <Setter Property="Icon" Value="Assets\app_icon.ico"/>
-                <Setter Property="Background" Value="{Binding themeResource}"/>
+                <Setter Property="AllowsTransparency" Value="True"/>
+                <Setter Property="Background" Value="Transparent"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
