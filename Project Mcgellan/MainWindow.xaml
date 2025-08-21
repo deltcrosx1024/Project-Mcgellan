@@ -52,7 +52,7 @@
                             <MenuItem Header="Settings" Foreground="#242526" Click="SettingsMenuItem_Click">
                                 <MenuItem.Icon>
                                     <TextBox FontFamily="Segoe MDL2 Assets"
-                                             Text="&#xE90F;"
+                                             Text="&#xE713;"
                                              HorizontalAlignment="Center"/>
                                 </MenuItem.Icon>
                             </MenuItem>
@@ -124,9 +124,9 @@
                 </DockPanel>
 
                 <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MinimizeButton" Content="-" Width="30" Height="30" Click="MinimizeButton_Click"/>
-                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MaximizeButton" Content="🗖" Width="30" Height="30" Click="MaximizeButton_Click"/>
-                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="CloseButton" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Width="30" Height="30" Click="CloseButton_Click"/>
+                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MinimizeButton" FontFamily="Segoe MDL2 Assets" Content="&#xE921;" Width="50" Height="30" Click="MinimizeButton_Click"/>
+                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MaximizeButton" FontFamily="Segoe MDL2 Assets" Content="&#xE71A;" Width="50" Height="30" Click="MaximizeButton_Click"/>
+                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="CloseButton" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Width="50" Height="30" Click="CloseButton_Click"/>
                 </StackPanel>
             </Grid>
             
