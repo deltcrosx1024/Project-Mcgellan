@@ -10,14 +10,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Assets\app_icon.ico" />
+        <None Remove="Assets\app_icon.ico" />
+		<None Update="Settings.xml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
     </ItemGroup>
     <ItemGroup>
         <Resource Include="Assets\app_icon.ico" />
-		<Resource Include="Settings.xml" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="NewFolder\" />
+        <Folder Include="Assets\" />
     </ItemGroup>
 
 </Project>

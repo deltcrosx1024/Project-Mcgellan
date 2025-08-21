@@ -9,92 +9,92 @@
         Title="Settings"
         Style="{DynamicResource SettingsWindowStyle}">
     <DockPanel Background="{DynamicResource Default-Light}">
-        <TabControl DockPanel.Dock="Top" Margin="10" Background="{DynamicResource Default-Light}">
-            <TabItem Header="General">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+        <Grid>
+            <TabControl DockPanel.Dock="Top" Margin="10" Background="{DynamicResource Default-Light}">
+                <TabItem Header="General">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Label Content="Resolution:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                    <ComboBox Grid.Row="0" Grid.Column="1" Width="150" x:Name="ResolutionComboBox" Margin="0,0,0,10">
-                        <ComboBoxItem Content="3840x2160"/>
-                        <ComboBoxItem Content="1920x1080"/>
-                        <ComboBoxItem Content="1280x720"/>
-                        <ComboBoxItem Content="800x600"/>
-                    </ComboBox>
+                        <Label Content="Resolution:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <ComboBox Grid.Row="0" Grid.Column="1" Width="150" x:Name="ResolutionComboBox" Margin="0,0,0,10">
+                            <ComboBoxItem Content="3840x2160"/>
+                            <ComboBoxItem Content="1920x1080"/>
+                            <ComboBoxItem Content="1280x720"/>
+                            <ComboBoxItem Content="800x600"/>
+                        </ComboBox>
 
-                    <Label Content="Theme:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                    <ComboBox Grid.Row="1" Grid.Column="1" Width="150" x:Name="ThemeComboBox" Margin="0,0,0,10">
-                        <ComboBoxItem Content="Default-Dark"/>
-                        <ComboBoxItem Content="Default-Light"/>
-                        <ComboBoxItem Content="System-Default"/>
-                    </ComboBox>
+                        <Label Content="Theme:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <ComboBox Grid.Row="1" Grid.Column="1" Width="150" x:Name="ThemeComboBox" Margin="0,0,0,10">
+                            <ComboBoxItem Content="Default-Dark"/>
+                            <ComboBoxItem Content="Default-Light"/>
+                            <ComboBoxItem Content="System-Default"/>
+                        </ComboBox>
+                    </Grid>
+                </TabItem>
 
-                    <Button Content="Apply" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Width="75" Margin="0,10,0,0" Click="ApplyButton_Click"/>
-                </Grid>
-            </TabItem>
+                <TabItem Header="Facility" Background="{DynamicResource Default-Light}">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-            <TabItem Header="Facility" Background="{DynamicResource Default-Light}">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                        <Label Content="Facility Name:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Width="200" x:Name="FacilityNameInput" Margin="0,0,0,10"/>
 
-                    <Label Content="Facility Name:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Width="200" x:Name="FacilityNameInput" Margin="0,0,0,10"/>
+                        <Label Content="Facility ID:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Width="100" x:Name="FacilityIdInput" Margin="0,0,0,10"/>
 
-                    <Label Content="Facility ID:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Width="100" x:Name="FacilityIdInput" Margin="0,0,0,10"/>
+                        <Label Content="Location:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Width="200" x:Name="FacilityLocated" Margin="0,0,0,10"/>
+                    </Grid>
+                </TabItem>
 
-                    <Label Content="Location:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Width="200" x:Name="FacilityLocated" Margin="0,0,0,10"/>
+                <TabItem Header="Data" Background="{DynamicResource Default-Light}">
+                    <Grid Margin="10">
+                        <TextBlock Text="Data Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
+                        <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                    </Grid>
+                </TabItem>
 
-                    <Button Content="Apply" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Width="75" Margin="0,10,0,0" Click="ApplyButton_Click"/>
-                </Grid>
-            </TabItem>
+                <TabItem Header="System" Background="{DynamicResource Default-Light}">
+                    <Grid Margin="10">
+                        <TextBlock Text="System Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
+                        <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                    </Grid>
+                </TabItem>
 
-            <TabItem Header="Data" Background="{DynamicResource Default-Light}">
-                <Grid Margin="10">
-                    <TextBlock Text="Data Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
-                    <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
-                </Grid>
-            </TabItem>
+                <TabItem Header="Font" Background="{DynamicResource Default-Light}">
+                    <Grid Margin="10">
+                        <TextBlock Text="Font Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
+                        <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                    </Grid>
+                </TabItem>
 
-            <TabItem Header="System" Background="{DynamicResource Default-Light}">
-                <Grid Margin="10">
-                    <TextBlock Text="System Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
-                    <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
-                </Grid>
-            </TabItem>
-
-            <TabItem Header="Font" Background="{DynamicResource Default-Light}">
-                <Grid Margin="10">
-                    <TextBlock Text="Font Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
-                    <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
-                </Grid>
-            </TabItem>
-
-            <TabItem Header="Statistics" Background="{DynamicResource Default-Light}">
-                <Grid Margin="10">
-                    <TextBlock Text="Statistics Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
-                    <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
+                <TabItem Header="Statistics" Background="{DynamicResource Default-Light}">
+                    <Grid Margin="10">
+                        <TextBlock Text="Statistics Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
+                        <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+            <Button Content="Cancel" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="20" Click="CancelButton_Click"/>
+            <Button Content="Apply" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="20" Click="ApplyButton_Click" IsEnabled="{Binding IsApplyEnabled}"/>
+        </Grid>
     </DockPanel>
 </Window>
