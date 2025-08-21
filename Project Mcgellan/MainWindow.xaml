@@ -49,19 +49,66 @@
                     <Menu DockPanel.Dock="Top" Background="#242526" Foreground="White">
                         <MenuItem Header="Home"/>
                         <MenuItem Header="Options">
-                            <MenuItem Header="Settings" Foreground="#242526" Click="SettingsMenuItem_Click"/>
+                            <MenuItem Header="Settings" Foreground="#242526" Click="SettingsMenuItem_Click">
+                                <MenuItem.Icon>
+                                    <TextBox FontFamily="Segoe MDL2 Assets"
+                                             Text="&#xE90F;"
+                                             HorizontalAlignment="Center"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
                         </MenuItem>
                         <MenuItem Header="Sales">
-                            <MenuItem Header="Product List" Foreground="#242526"/>
-                            <MenuItem Header="Import Inventory" Foreground="#242526"/>
-                            <MenuItem Header="Export Inventory" Foreground="#242526"/>
-                            <MenuItem Header="Payment Options" Foreground="#242526"/>
+                            <MenuItem Header="Product List" Foreground="#242526">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets"
+                                               Text="&#xE71D;"
+                                               HorizontalAlignment="Center"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Import Inventory" Foreground="#242526">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets"
+                                               Text="&#xE896;"
+                                               HorizontalAlignment="Center"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Export Inventory" Foreground="#242526">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets"
+                                               Text="&#xE898;"
+                                               HorizontalAlignment="Center"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Payment Options" Foreground="#242526">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets"
+                                               Text="&#xE8C7;"
+                                               HorizontalAlignment="Center"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
                         </MenuItem>
                         <MenuItem Header="Warehouse">
-                            <!--Code Goes Here-->
-                            <MenuItem Header="Warehouse Management" Foreground="#242526"/>
-                            <MenuItem Header="Categories" Foreground="#242526"/>
-                            <MenuItem Header="Location Prefix" Foreground="#242526"/>
+                            <MenuItem Header="Warehouse Management" Foreground="#242526">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets"
+                                               Text="&#xE80F;"
+                                               HorizontalAlignment="Center"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Categories" Foreground="#242526">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets"
+                                               Text="&#xE8EC;"
+                                               HorizontalAlignment="Center"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Location Prefix" Foreground="#242526">
+                                <MenuItem.Icon>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets"
+                                               Text="&#xE707;"
+                                               HorizontalAlignment="Center"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
                         </MenuItem>
                         <MenuItem Header="Users" />
                         <MenuItem Header="Statistics">
@@ -69,13 +116,17 @@
                             <MenuItem Header="Warehouse I/O Statistics" Foreground="#242526"/>
                             <MenuItem Header="Overview" Foreground="#242526"/>
                         </MenuItem>
+                        <MenuItem Header="Help">
+                            <MenuItem Header="About" Foreground="#242526"/>
+                            <MenuItem Header="Documentation" Foreground="#242526"/>
+                        </MenuItem>
                     </Menu>
                 </DockPanel>
 
                 <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MinimizeButton" Content="-" Width="30" Height="30" Click="MinimizeButton_Click"/>
                     <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MaximizeButton" Content="🗖" Width="30" Height="30" Click="MaximizeButton_Click"/>
-                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="CloseButton" Content="X" Width="30" Height="30" Click="CloseButton_Click"/>
+                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="CloseButton" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Width="30" Height="30" Click="CloseButton_Click"/>
                 </StackPanel>
             </Grid>
             

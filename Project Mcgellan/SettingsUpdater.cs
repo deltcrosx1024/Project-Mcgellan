@@ -31,7 +31,6 @@ namespace Project_Mcgellan
                     windowWidthElement.Value = parts[0];
                     windowHeightElement.Value = parts[1];
                     doc.Save(_settingsFilePath);
-                    MessageBox.Show("Completed");
                 }
                 else
                 {
@@ -55,7 +54,6 @@ namespace Project_Mcgellan
                 {
                     themeElement.Value = theme;
                     doc.Save(_settingsFilePath);
-                    MessageBox.Show("Theme updated successfully.");
                 }
                 else
                 {
@@ -82,7 +80,6 @@ namespace Project_Mcgellan
                     facilityName.Value = facname;
                     facilityId.Value = facid;
                     doc.Save(_settingsFilePath);
-                    MessageBox.Show("Facility updated successfully.");
                 }
                 else
                 {

@@ -19,6 +19,8 @@ namespace Project_Mcgellan
         readonly SettingsLoad settingsLoad = new();
         readonly SettingsUpdater settingsUpdater = new();
 
+        public int? CurrentWidth { get; set; }
+        public int? CurrentHeight { get; set; }
         public string? CurrentTheme { get; set; }
         public string? CurrentFacilityName { get; set; }
         public string? CurrentFacilityId { get; set; }
@@ -27,13 +29,16 @@ namespace Project_Mcgellan
         public MainWindow()
         {
             InitializeComponent();
-            
-            this.Loaded += MainWindow_Loaded;
+
+            this.Width = CurrentWidth ?? 1280;
+            this.Height = CurrentHeight ?? 720;
+
+            //this.Loaded += MainWindow_Loaded;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            ApplyTheme();
+            //ApplyTheme();
         }
 
         private void ApplyTheme()
