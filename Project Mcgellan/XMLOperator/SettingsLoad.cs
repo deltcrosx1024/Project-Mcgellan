@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace Project_Mcgellan
+namespace Project_Mcgellan.XMLOperator
 {
     public class SettingsLoad
     {

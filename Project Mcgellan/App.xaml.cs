@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using Project_Mcgellan.Services;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -10,26 +11,21 @@ namespace Project_Mcgellan
     public partial class App : Application
     {
 
+        public static Settings? CurrentSettings { get; set; }
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            SettingsLoad settingsLoad = new();
+            
+            CurrentSettings = SettingsService.Load() ?? new Settings();
+            ThemeService.ApplyTheme(CurrentSettings.Theme);
 
-            string windowSize = settingsLoad.GetWindowSize();
-            string theme = settingsLoad.GetTheme();
-            string facName = settingsLoad.GetFacName();
-            string facId = settingsLoad.GetFacId().ToString();
-
-            int windowWidth = int.Parse(windowSize.Split('x')[0]);
-            int windowHeight = int.Parse(windowSize.Split('x')[1]);
-
-            if(this.MainWindow is MainWindow MainWindow)
+            if (this.MainWindow is MainWindow MainWindow)
             {
-                MainWindow.CurrentWidth = windowWidth;
-                MainWindow.CurrentHeight = windowHeight;
-                MainWindow.CurrentTheme = theme;
-                MainWindow.CurrentFacilityName = facName;
-                MainWindow.CurrentFacilityId = facId;
+                MainWindow.CurrentWidth = CurrentSettings.WindowWidth;
+                MainWindow.CurrentHeight = CurrentSettings.WindowHeight;
+                MainWindow.CurrentTheme = CurrentSettings.Theme;
+                MainWindow.CurrentFacilityName = CurrentSettings.FacilityName;
+                MainWindow.CurrentFacilityId = CurrentSettings.FacilityID;
             }
             // Theme resource selection logic can be improved if you want to apply it at runtime.
         }

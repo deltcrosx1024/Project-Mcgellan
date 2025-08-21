@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Xml.Linq;
 
-namespace Project_Mcgellan
+namespace Project_Mcgellan.XMLOperator
 {
     public class SettingsUpdater
     {

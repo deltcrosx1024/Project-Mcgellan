@@ -16,8 +16,7 @@ namespace Project_Mcgellan
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly SettingsLoad settingsLoad = new();
-        readonly SettingsUpdater settingsUpdater = new();
+        readonly Settings _settings = App.CurrentSettings ?? new Settings();
 
         public int? CurrentWidth { get; set; }
         public int? CurrentHeight { get; set; }
@@ -33,49 +32,27 @@ namespace Project_Mcgellan
             this.Width = CurrentWidth ?? 1280;
             this.Height = CurrentHeight ?? 720;
 
-            //this.Loaded += MainWindow_Loaded;
+            this.Loaded += MainWindow_Loaded;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //ApplyTheme();
-        }
-
-        private void ApplyTheme()
-        {
-            string theme = settingsLoad.GetTheme();
-            CurrentTheme = theme;
-            if (theme == "Default-Light")
-            {
-                this.Resources.MergedDictionaries.Clear();
-                this.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Themes/LightTheme.xaml", UriKind.Relative) });
-            }
-            else if (theme == "Default-Dark")
-            {
-                this.Resources.MergedDictionaries.Clear();
-                this.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Themes/DarkTheme.xaml", UriKind.Relative) });
-            }
-            else if (theme == "System-Default")
-            {
-                this.Resources.MergedDictionaries.Clear();
-                this.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Themes/SystemDefaultTheme.xaml", UriKind.Relative) });
-            }
-            else if (theme == "Custom-Theme")
-            {
-                this.Resources.MergedDictionaries.Clear();
-                this.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Themes/CustomTheme.xaml", UriKind.Relative) });
-            }
-            else
-            {
-                MessageBox.Show("Invalid theme selected. Defaulting to Light theme.");
-                this.Resources.MergedDictionaries.Clear();
-                this.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("Themes/LightTheme.xaml", UriKind.Relative) });
-            }
+            //code goes here to initialize the main window after it has loaded
         }
 
         public void SettingsMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            SettingsWindow settingsWindow = new();
+            if(App.CurrentSettings == null)
+            {
+                MessageBox.Show("Settings not loaded. Please check the application configuration.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            SettingsWindow settingsWindow = new(App.CurrentSettings)
+            {
+                Owner = this,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner
+            };
+
             settingsWindow.ShowDialog();
         }
 

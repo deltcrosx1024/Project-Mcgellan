@@ -31,7 +31,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Content="Resolution:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <ComboBox Grid.Row="0" Grid.Column="1" Width="150" x:Name="ResolutionComboBox" Margin="0,0,0,10">
+                        <ComboBox Grid.Row="0" Grid.Column="1" Width="150" SelectedValue="{Binding Resolution, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" x:Name="ResolutionComboBox" Margin="0,0,0,10">
                             <ComboBoxItem Content="3840x2160"/>
                             <ComboBoxItem Content="1920x1080"/>
                             <ComboBoxItem Content="1280x720"/>
@@ -39,7 +39,7 @@
                         </ComboBox>
 
                         <Label Content="Theme:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <ComboBox Grid.Row="1" Grid.Column="1" Width="150" x:Name="ThemeComboBox" Margin="0,0,0,10">
+                        <ComboBox Grid.Row="1" Grid.Column="1" Width="150" SelectedValue="{Binding Theme, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" x:Name="ThemeComboBox" Margin="0,0,0,10">
                             <ComboBoxItem Content="Default-Dark"/>
                             <ComboBoxItem Content="Default-Light"/>
                             <ComboBoxItem Content="System-Default"/>
@@ -61,13 +61,13 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Content="Facility Name:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <TextBox Grid.Row="0" Grid.Column="1" Width="200" x:Name="FacilityNameInput" Margin="0,0,0,10"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Width="200" Text="{Binding FacilityName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" x:Name="FacilityNameInput" Margin="0,0,0,10"/>
 
                         <Label Content="Facility ID:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <TextBox Grid.Row="1" Grid.Column="1" Width="100" x:Name="FacilityIdInput" Margin="0,0,0,10"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Width="100" Text="{Binding FacilityID, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" x:Name="FacilityIdInput" Margin="0,0,0,10"/>
 
                         <Label Content="Location:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" Width="200" x:Name="FacilityLocated" Margin="0,0,0,10"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Width="200" Text="{Binding FacilityLocation, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" x:Name="FacilityLocated" Margin="0,0,0,10"/>
                     </Grid>
                 </TabItem>
 
@@ -101,7 +101,8 @@
             </TabControl>
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,10">
                 <Button Content="Apply" Width="75" Margin="0,0,10,0" Click="ApplyButton_Click" IsEnabled="{Binding IsApplyEnabled}"/>
-                <Button Content="Cancel" Width="75" Click="CancelButton_Click"/>
+                <Button Content="Cancel" Width="75" Margin="0,0,10,0" Click="CancelButton_Click"/>
+                <Button Content="Restore Default" Width="120" Click="RestoreDefaults_Click"/>
             </StackPanel>
         </Grid>
     </DockPanel>
