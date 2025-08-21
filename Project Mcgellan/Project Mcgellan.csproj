@@ -14,7 +14,10 @@
     </ItemGroup>
     <ItemGroup>
         <Resource Include="Assets\app_icon.ico" />
-		<Resource Include="Settings.xml"/>
+		<Resource Include="Settings.xml" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="NewFolder\" />
     </ItemGroup>
 
 </Project>
