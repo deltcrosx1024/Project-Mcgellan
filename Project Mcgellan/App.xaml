@@ -19,6 +19,16 @@
                 <Setter Property="AllowsTransparency" Value="True"/>
                 <Setter Property="Background" Value="Transparent"/>
             </Style>
+            <Style x:Key="SettingsWindowStyle"
+                   TargetType="{x:Type Window}">
+                <Setter Property="Width" Value="500"/>
+                <Setter Property="Height" Value="400"/>
+                <Setter Property="WindowStyle" Value="SingleBorderWindow"/>
+                <Setter Property="Icon" Value="/Assets/app_icon.ico"/>
+                <Setter Property="ResizeMode" Value="NoResize"/>
+                <Setter Property="AllowsTransparency" Value="False"/>
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

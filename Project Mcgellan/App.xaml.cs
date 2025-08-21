@@ -13,7 +13,7 @@ namespace Project_Mcgellan
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            SettingsLoad settingsLoad = new SettingsLoad();
+            SettingsLoad settingsLoad = new();
 
             string windowSize = settingsLoad.GetWindowSize();
             string theme = settingsLoad.GetTheme();
@@ -23,20 +23,15 @@ namespace Project_Mcgellan
             int windowWidth = int.Parse(windowSize.Split('x')[0]);
             int windowHeight = int.Parse(windowSize.Split('x')[1]);
 
-            string themeResource;
-
-            if (theme == "Default-Dark")
+            if(this.MainWindow is MainWindow MainWindow)
             {
-                themeResource = "{DynamicResource Default-Dark}";
+                MainWindow.CurrentWidth = windowWidth;
+                MainWindow.CurrentHeight = windowHeight;
+                MainWindow.CurrentTheme = theme;
+                MainWindow.CurrentFacilityName = facName;
+                MainWindow.CurrentFacilityId = facId;
             }
-            else if (theme == "Default-Light")
-            {
-                themeResource = "{DynamicResource Default-Light}";
-            }
-            else
-            {
-                themeResource = "{DynamicResource Default-Light}"; // Fallback to light theme
-            }
+            // Theme resource selection logic can be improved if you want to apply it at runtime.
         }
     }
 

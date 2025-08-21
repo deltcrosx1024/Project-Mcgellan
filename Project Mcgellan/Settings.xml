@@ -5,4 +5,5 @@
 	<BackgroundTheme>Default-Dark</BackgroundTheme>
 	<FacilityName>DefaultFacilityName</FacilityName>
 	<FacilityId>001</FacilityId>
+	<FacilityLocation></FacilityLocation>
 </AppSettings>
