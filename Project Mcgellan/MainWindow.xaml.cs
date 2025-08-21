@@ -30,5 +30,10 @@ namespace Project_Mcgellan
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.ShowDialog();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
