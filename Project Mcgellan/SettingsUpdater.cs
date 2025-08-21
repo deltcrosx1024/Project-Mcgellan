@@ -1,18 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 public class SettingsUpdater
 {
     private readonly string _settingsFilePath = "Settings.xml";
 
-    public void UpdateWindowSize(string WindowResolution)
+    public void UpdateWindowSize(string windowResolution)
     {
         try
         {
+            var parts = windowResolution.Split('x');
+            if (parts.Length != 2)
+            {
+                Console.WriteLine("Invalid window resolution format.");
+                return;
+            }
+
             XDocument doc = XDocument.Load(_settingsFilePath);
 
             XElement windowWidthElement = doc.Descendants("WindowWidth").FirstOrDefault();
@@ -20,14 +24,11 @@ public class SettingsUpdater
 
             if (windowWidthElement != null && windowHeightElement != null)
             {
-                windowWidthElement.Value = (string)XElement.Parse(WindowResolution.Split('x')[0]);
-                windowHeightElement.Value = (string)XElement.Parse(WindowResolution.Split('x')[1]);
-
+                windowWidthElement.Value = parts[0];
+                windowHeightElement.Value = parts[1];
                 doc.Save(_settingsFilePath);
-
                 Console.WriteLine("Window size updated successfully.");
             }
-
             else
             {
                 Console.WriteLine("WindowWidth or WindowHeight element not found in the settings file.");
@@ -44,15 +45,12 @@ public class SettingsUpdater
         try
         {
             XDocument doc = XDocument.Load(_settingsFilePath);
-
             XElement themeElement = doc.Descendants("BackgroundTheme").FirstOrDefault();
 
             if (themeElement != null)
             {
-                themeElement.Value = (string)XElement.Parse(theme);
-
+                themeElement.Value = theme;
                 doc.Save(_settingsFilePath);
-
                 Console.WriteLine("Theme updated successfully.");
             }
             else
@@ -72,26 +70,24 @@ public class SettingsUpdater
         {
             XDocument doc = XDocument.Load(_settingsFilePath);
 
-            XElement FacilityName = doc.Descendants("FacilityName").FirstOrDefault();
-            XElement FacilityID = doc.Descendants("FacilityId").FirstOrDefault();
+            XElement facilityName = doc.Descendants("FacilityName").FirstOrDefault();
+            XElement facilityId = doc.Descendants("FacilityId").FirstOrDefault();
 
-            if (FacilityName != null && FacilityID != null)
+            if (facilityName != null && facilityId != null)
             {
-                FacilityName.Value = (string)XElement.Parse(facname);
-                FacilityID.Value = (string)XElement.Parse(facid);
+                facilityName.Value = facname;
+                facilityId.Value = facid;
+                doc.Save(_settingsFilePath);
+                Console.WriteLine("Facility updated successfully.");
             }
             else
             {
                 Console.WriteLine("FacilityName or FacilityId element not found in the settings file.");
             }
-
-            doc.Save(_settingsFilePath);
         }
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred while updating the facility: {ex.Message}");
-
         }
-
     }
 }

@@ -8,7 +8,20 @@
         Style="{DynamicResource MainWindowStyle}"
         Title="Project Mcgellan"
         WindowStartupLocation="CenterScreen">
-    <Border Background="{DynamicResource Default-Dark}" CornerRadius="8" Margin="0">
+    <Border Background="{DynamicResource Default-Dark}" CornerRadius="8" Padding="5">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Padding" Value="0,5,0,0"/>
+
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    Value="Maximized">
+                        <Setter Property="Padding" Value="0,10,0,0"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -33,28 +46,28 @@
                 </StackPanel>
 
                 <DockPanel Background="{DynamicResource Default-Dark}">
-                    <Menu DockPanel.Dock="Top" Background="{DynamicResource Default-Dark}" Foreground="White">
+                    <Menu DockPanel.Dock="Top" Background="#242526" Foreground="White">
                         <MenuItem Header="Home"/>
                         <MenuItem Header="Options">
-                            <MenuItem Header="Settings" Click="SettingsMenuItem_Click"/>
+                            <MenuItem Header="Settings" Foreground="#242526" Click="SettingsMenuItem_Click"/>
                         </MenuItem>
                         <MenuItem Header="Sales">
-                            <MenuItem Header="Product List"/>
-                            <MenuItem Header="Import Inventory"/>
-                            <MenuItem Header="Export Inventory"/>
-                            <MenuItem Header="Payment Options"/>
+                            <MenuItem Header="Product List" Foreground="#242526"/>
+                            <MenuItem Header="Import Inventory" Foreground="#242526"/>
+                            <MenuItem Header="Export Inventory" Foreground="#242526"/>
+                            <MenuItem Header="Payment Options" Foreground="#242526"/>
                         </MenuItem>
                         <MenuItem Header="Warehouse">
                             <!--Code Goes Here-->
-                            <MenuItem Header="Warehouse Management"/>
-                            <MenuItem Header="Categories"/>
-                            <MenuItem Header="Location Prefix"/>
+                            <MenuItem Header="Warehouse Management" Foreground="#242526"/>
+                            <MenuItem Header="Categories" Foreground="#242526"/>
+                            <MenuItem Header="Location Prefix" Foreground="#242526"/>
                         </MenuItem>
                         <MenuItem Header="Users" />
                         <MenuItem Header="Statistics">
-                            <MenuItem Header="Sales Statistics"/>
-                            <MenuItem Header="Warehouse I/O Statistics"/>
-                            <MenuItem Header="Overview"/>
+                            <MenuItem Header="Sales Statistics" Foreground="#242526"/>
+                            <MenuItem Header="Warehouse I/O Statistics" Foreground="#242526"/>
+                            <MenuItem Header="Overview" Foreground="#242526"/>
                         </MenuItem>
                     </Menu>
                 </DockPanel>

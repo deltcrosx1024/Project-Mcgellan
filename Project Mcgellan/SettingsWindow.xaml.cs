@@ -16,42 +16,28 @@ using System.Xml.Linq;
 
 namespace Project_Mcgellan
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class SettingsWindow : Window
     {
-
         public SettingsWindow()
         {
             InitializeComponent();
-
         }
 
         public void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                // Apply settings logic here
-                ComboBoxItem SelectedResolution = (ComboBoxItem)ResolutionComboBox.SelectedItem;
-                ComboBoxItem SelectedTheme = (ComboBoxItem)ThemeComboBox.SelectedItem;
-
-                String facname = FacilityNameInput.Text;
-                String facid = FacilityIdInput.Text;
-                String FacLocInp = FacilityLocated.Text;
+                var selectedResolution = (ResolutionComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "1280x720";
+                var selectedTheme = (ThemeComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Default-Dark";
+                string facname = FacilityNameInput.Text;
+                string facid = FacilityIdInput.Text;
 
                 SettingsUpdater updater = new SettingsUpdater();
-
-                String WindowResolution = SelectedResolution.ToString();
-
-                updater.UpdateWindowSize(WindowResolution);
-
-                updater.UpdateTheme(SelectedTheme.ToString());
-
+                updater.UpdateWindowSize(selectedResolution);
+                updater.UpdateTheme(selectedTheme);
                 updater.UpdateFacility(facname, facid);
 
                 MessageBox.Show("Settings have been applied successfully.", "Settings Updated", MessageBoxButton.OK, MessageBoxImage.Information);
-
             }
             catch (Exception ex)
             {
@@ -61,17 +47,18 @@ namespace Project_Mcgellan
 
         public void Test_Click(object sender, RoutedEventArgs e)
         {
-            //code goes here
-            String _SettingsPath = "Settings.xml";
-            XElement doc = XElement.Load(_SettingsPath);
-
-            XElement width = doc.Descendants("WindowWidth").FirstOrDefault() as XElement;
-            XElement height = doc.Descendants("WindowHeight").FirstOrDefault() as XElement;
-
-            String resolution = $"{width.ToString()}x{height.ToString()}";
-
-            MessageBox.Show(resolution);
-
+            try
+            {
+                XElement doc = XElement.Load("Settings.xml");
+                XElement width = doc.Descendants("WindowWidth").FirstOrDefault();
+                XElement height = doc.Descendants("WindowHeight").FirstOrDefault();
+                string resolution = $"{width?.Value}x{height?.Value}";
+                MessageBox.Show(resolution);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error reading settings: {ex.Message}");
+            }
         }
     }
 }

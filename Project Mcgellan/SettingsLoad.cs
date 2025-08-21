@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 public class SettingsLoad
 {
     private readonly string _settingsFilePath = "Settings.xml";
+
     public string GetWindowSize()
     {
         try
@@ -22,15 +20,16 @@ public class SettingsLoad
             else
             {
                 Console.WriteLine("WindowWidth or WindowHeight element not found in the settings file.");
-                return "800x600"; // Default size
+                return "800x600";
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred while loading the settings: {ex.Message}");
-            return "800x600"; // Default size
+            return "800x600";
         }
     }
+
     public string GetTheme()
     {
         try
@@ -44,13 +43,13 @@ public class SettingsLoad
             else
             {
                 Console.WriteLine("BackgroundTheme element not found in the settings file.");
-                return "Light"; // Default theme
+                return "Light";
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred while loading the settings: {ex.Message}");
-            return "Light"; // Default theme
+            return "Light";
         }
     }
 
@@ -66,14 +65,14 @@ public class SettingsLoad
             }
             else
             {
-                Console.WriteLine("FacName element not found in the settings file.");
-                return "Default Faculty"; // Default faculty name
+                Console.WriteLine("FacilityName element not found in the settings file.");
+                return "Default Faculty";
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred while loading the settings: {ex.Message}");
-            return "Default Faculty"; // Default faculty name
+            return "Default Faculty";
         }
     }
 
@@ -83,20 +82,20 @@ public class SettingsLoad
         {
             XDocument doc = XDocument.Load(_settingsFilePath);
             XElement facIdElement = doc.Descendants("FacilityId").FirstOrDefault();
-            if (facIdElement != null)
+            if (facIdElement != null && int.TryParse(facIdElement.Value, out int id))
             {
-                return int.Parse(facIdElement.Value);
+                return id;
             }
             else
             {
-                Console.WriteLine("FacId element not found in the settings file.");
-                return 0; // Default faculty ID
+                Console.WriteLine("FacilityId element not found or invalid in the settings file.");
+                return 0;
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred while loading the settings: {ex.Message}");
-            return 0; // Default faculty ID
+            return 0;
         }
     }
 }

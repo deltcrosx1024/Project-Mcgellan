@@ -23,20 +23,7 @@ namespace Project_Mcgellan
             int windowWidth = int.Parse(windowSize.Split('x')[0]);
             int windowHeight = int.Parse(windowSize.Split('x')[1]);
 
-            string themeResource;
-
-            if (theme == "Default-Dark")
-            {
-                themeResource = "{DynamicResource Default-Dark}";
-            }
-            else if (theme == "Default-Light")
-            {
-                themeResource = "{DynamicResource Default-Light}";
-            }
-            else
-            {
-                themeResource = "{DynamicResource Default-Light}"; // Fallback to light theme
-            }
+            // Theme resource selection logic can be improved if you want to apply it at runtime.
         }
     }
 
