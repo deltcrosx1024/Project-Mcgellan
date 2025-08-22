@@ -11,16 +11,16 @@
 
     <ItemGroup>
         <None Remove="Assets\app_icon.ico" />
-		<None Update="Settings.xml">
+		<None Remove="Assets\icon-ref1.ico" />
+		<None Remove="Assets\icon-ref2.ico" />
+		<None Update="XMLOperator\Settings.xml">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
     </ItemGroup>
     <ItemGroup>
         <Resource Include="Assets\app_icon.ico" />
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Assets\" />
-        <Folder Include="Themes\" />
+		<Resource Include="Assets\icon-ref1.ico" />
+		<Resource Include="Assets\icon-ref2.ico" />
     </ItemGroup>
 
 </Project>
