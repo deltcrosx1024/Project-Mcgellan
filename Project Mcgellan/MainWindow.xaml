@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Project_Mcgellan"
         mc:Ignorable="d"
         Style="{DynamicResource MainWindowStyle}"
+        Background="{DynamicResource AppBackgroundBrush}"
         Title="Project Mcgellan"
         WindowStartupLocation="CenterScreen">
     <Border Background="{DynamicResource Default-Dark}" CornerRadius="8" Padding="5">
