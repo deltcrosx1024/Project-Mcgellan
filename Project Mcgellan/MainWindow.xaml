@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_Mcgellan"
+        xmlns:avalonDock="https://github.com/Dirkster99/AvalonDock"
         mc:Ignorable="d"
         Style="{DynamicResource MainWindowStyle}"
         Background="{DynamicResource AppBackgroundBrush}"
@@ -129,6 +130,72 @@
                     <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MaximizeButton" FontFamily="Segoe MDL2 Assets" Content="&#xE71A;" Width="50" Height="30" Click="MaximizeButton_Click"/>
                     <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="CloseButton" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Width="50" Height="30" Click="CloseButton_Click"/>
                 </StackPanel>
+                
+                <!--The rest of the content goes here-->
+                <Border Grid.Row="1" Background="{DynamicResource Default-Light}" BorderThickness="3" CornerRadius="0,0,8,8" Padding="5">
+                    <Grid>
+                        <avalonDock:DockingManager x:Name="DockingManager">
+
+                            <!-- This defines the overall layout structure. -->
+                            <avalonDock:LayoutRoot>
+                                <!-- LayoutPanel arranges its children. 'Orientation="Horizontal"' means panes will be side-by-side. -->
+                                <avalonDock:LayoutPanel Orientation="Horizontal">
+
+                                    <!-- Left Anchorable Pane Group -->
+                                    <avalonDock:LayoutAnchorablePaneGroup DockWidth="250">
+                                        <avalonDock:LayoutAnchorablePane>
+                                            <!-- A LayoutAnchorable is a dockable tool window. -->
+                                            <avalonDock:LayoutAnchorable Title="Toolbox" ContentId="toolbox">
+                                                <StackPanel Margin="10">
+                                                    <Button Content="Button" Margin="2"/>
+                                                    <Button Content="CheckBox" Margin="2"/>
+                                                    <Button Content="Label" Margin="2"/>
+                                                    <TextBlock Text="More tools..." Margin="2,10,2,2" FontWeight="Bold"/>
+                                                </StackPanel>
+                                            </avalonDock:LayoutAnchorable>
+                                        </avalonDock:LayoutAnchorablePane>
+                                    </avalonDock:LayoutAnchorablePaneGroup>
+
+                                    <!-- Main Document and Right Pane Group -->
+                                    <avalonDock:LayoutPanel Orientation="Vertical">
+
+                                        <!-- The Document Pane Group holds the main content area. -->
+                                        <avalonDock:LayoutDocumentPaneGroup>
+                                            <avalonDock:LayoutDocumentPane>
+                                                <!-- A LayoutDocument is typically a tabbed document in the center. -->
+                                                <avalonDock:LayoutDocument Title="Workspace Canvas" ContentId="main_canvas">
+                                                    <Grid Background="#FFE0E0E0">
+                                                        <TextBlock Text="This is the main canvas area." 
+                                                       HorizontalAlignment="Center" 
+                                                       VerticalAlignment="Center" 
+                                                       FontSize="18" 
+                                                       Foreground="Gray"/>
+                                                    </Grid>
+                                                </avalonDock:LayoutDocument>
+                                                <avalonDock:LayoutDocument Title="Another Document" ContentId="doc2">
+                                                    <TextBox Text="You can edit text here." AcceptsReturn="True" TextWrapping="Wrap" Padding="5"/>
+                                                </avalonDock:LayoutDocument>
+                                            </avalonDock:LayoutDocumentPane>
+                                        </avalonDock:LayoutDocumentPaneGroup>
+
+                                    </avalonDock:LayoutPanel>
+
+                                    <!-- Right Anchorable Pane Group -->
+                                    <avalonDock:LayoutAnchorablePaneGroup DockWidth="250">
+                                        <avalonDock:LayoutAnchorablePane>
+                                            <avalonDock:LayoutAnchorable Title="Properties" ContentId="properties">
+                                                <Border Padding="5">
+                                                    <TextBlock Text="Properties for selected item..." TextWrapping="Wrap"/>
+                                                </Border>
+                                            </avalonDock:LayoutAnchorable>
+                                        </avalonDock:LayoutAnchorablePane>
+                                    </avalonDock:LayoutAnchorablePaneGroup>
+
+                                </avalonDock:LayoutPanel>
+                            </avalonDock:LayoutRoot>
+                        </avalonDock:DockingManager>
+                    </Grid>
+                </Border>
             </Grid>
             
         </Grid>

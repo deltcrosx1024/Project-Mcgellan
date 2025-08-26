@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Title="Settings"
         Style="{DynamicResource SettingsWindowStyle}">
-    <DockPanel Background="{DynamicResource Default-Light}">
+    <DockPanel Background="{DynamicResource default-bg-light}">
         <Grid>
 
             <Grid.RowDefinitions>
@@ -16,7 +16,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
-            <TabControl DockPanel.Dock="Top" Margin="10" Background="{DynamicResource Default-Light}">
+            <TabControl DockPanel.Dock="Top" Margin="10" Background="{DynamicResource default-bg-light}">
                 <TabItem Header="General">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
@@ -47,7 +47,7 @@
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="Facility" Background="{DynamicResource Default-Light}">
+                <TabItem Header="Facility" Background="{DynamicResource default-bg-light}">
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -71,28 +71,28 @@
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="Data" Background="{DynamicResource Default-Light}">
+                <TabItem Header="Data" Background="{DynamicResource default-bg-light}">
                     <Grid Margin="10">
                         <TextBlock Text="Data Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
                         <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="System" Background="{DynamicResource Default-Light}">
+                <TabItem Header="System" Background="{DynamicResource default-bg-light}">
                     <Grid Margin="10">
                         <TextBlock Text="System Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
                         <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="Font" Background="{DynamicResource Default-Light}">
+                <TabItem Header="Font" Background="{DynamicResource default-bg-light}">
                     <Grid Margin="10">
                         <TextBlock Text="Font Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
                         <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="Statistics" Background="{DynamicResource Default-Light}">
+                <TabItem Header="Statistics" Background="{DynamicResource default-bg-light}">
                     <Grid Margin="10">
                         <TextBlock Text="Statistics Settings" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Margin="0,10,0,10"/>
                         <TextBlock Text="Work In Progress" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>

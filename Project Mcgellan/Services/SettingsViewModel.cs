@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
-using Project_Mcgellan.Services;
 
-namespace Project_Mcgellan.ViewModels
+namespace Project_Mcgellan.Services
 {
     public class SettingsViewModel : INotifyPropertyChanged, INotifyDataErrorInfo
     {

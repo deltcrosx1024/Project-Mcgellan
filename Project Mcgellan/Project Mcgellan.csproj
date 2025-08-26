@@ -13,6 +13,7 @@
         <None Remove="Assets\app_icon.ico" />
 		<None Remove="Assets\icon-ref1.ico" />
 		<None Remove="Assets\icon-ref2.ico" />
+		<PackageReference Include="Dirkster.Avalondock" Version="4.72.1" />
 		<None Update="XMLOperator\Settings.xml">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
