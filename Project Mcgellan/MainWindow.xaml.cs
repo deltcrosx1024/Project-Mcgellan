@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -35,7 +36,7 @@ namespace Project_Mcgellan
             this.Loaded += MainWindow_Loaded;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private static void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             //code goes here to initialize the main window after it has loaded
         }
@@ -77,14 +78,7 @@ namespace Project_Mcgellan
         // Maximize/Restore Button Logic
         private void MaximizeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (this.WindowState == WindowState.Normal)
-            {
-                this.WindowState = WindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = WindowState.Normal;
-            }
+            WindowState = this.WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
         }
 
         // Minimize Button Logic
@@ -92,5 +86,6 @@ namespace Project_Mcgellan
         {
             this.WindowState = WindowState.Minimized;
         }
+
     }
 }

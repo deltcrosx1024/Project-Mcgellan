@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="AppBackgroundBrush" Color="#242526"/>
-    <SolidColorBrush x:Key="default-bg-dark" Color="#242526"/>
-    <SolidColorBrush x:Key="default-bg-light" Color="#F2F7FF"/>
+    <SolidColorBrush x:Key="Default-Bg-Brush-Dark" Color="#242526"/>
+    <SolidColorBrush x:Key="Default-Bg-Brush-Light" Color="#F2F7FF"/>
 
 </ResourceDictionary>

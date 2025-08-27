@@ -3,22 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Project_Mcgellan"
         xmlns:avalonDock="https://github.com/Dirkster99/AvalonDock"
+        xmlns:local="clr-namespace:Project_Mcgellan"
         mc:Ignorable="d"
         Style="{DynamicResource MainWindowStyle}"
-        Background="{DynamicResource AppBackgroundBrush}"
         Title="Project Mcgellan"
-        WindowStartupLocation="CenterScreen">
-    <Border Background="{DynamicResource Default-Dark}" CornerRadius="8" Padding="5">
+        WindowStartupLocation="CenterScreen"
+        x:Name="WindowParent">
+    <Window.Resources>
+        <!--
+        This is the Resource for adding an object into main window. specially for the scalable and responsiveness
+        for the program itself.
+        -->
+    </Window.Resources>
+    <Border Background="{DynamicResource Default-Bg-Brush-Dark}" 
+            CornerRadius="8" 
+            Padding="5">
         <Border.Style>
             <Style TargetType="Border">
-                <Setter Property="Padding" Value="0,5,0,0"/>
+                <Setter Property="Padding" 
+                        Value="0,5,0,0"/>
 
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding WindowState, RelativeSource={RelativeSource AncestorType=Window}}"
                                     Value="Maximized">
-                        <Setter Property="Padding" Value="0,10,0,0"/>
+                        <Setter Property="Padding"
+                                Value="0,10,0,0"/>
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
@@ -30,16 +40,29 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid x:Name="TitleBar" Background="{DynamicResource Default-Dark}" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+            <Grid x:Name="TitleBar" 
+                  Background="{DynamicResource Default-Bg-Brush-Dark}" 
+                  MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 
-                <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="5" Background="{DynamicResource Default-Dark}">
-                    <Image Source="/Assets/app_icon.ico" Width="20" Height="20" Margin="5,0"/>
-                    <Menu Background="Transparent" Foreground="White">
+                <StackPanel Grid.Column="0" 
+                            Orientation="Horizontal"
+                            Margin="5" 
+                            Background="{DynamicResource Default-Bg-Brush-Dark}">
+                    <Image Source="/Assets/app_icon.ico" 
+                           Width="20" 
+                           Height="20" 
+                           Margin="5,0"/>
+                    <Menu Background="Transparent" 
+                          Foreground="White">
                         <MenuItem Header="_File">
                         </MenuItem>
                         <MenuItem Header="_Edit">
@@ -47,11 +70,18 @@
                     </Menu>
                 </StackPanel>
 
-                <DockPanel Background="{DynamicResource Default-Dark}">
-                    <Menu DockPanel.Dock="Top" Background="#242526" Foreground="White">
+                <DockPanel Grid.Row="0"
+                           Grid.Column="0"
+                           Background="{DynamicResource Default-Bg-Brush-Dark}">
+                    <!--Toolbar Menu List-->
+                    <Menu DockPanel.Dock="Top" 
+                          Background="#242526" 
+                          Foreground="White">
                         <MenuItem Header="Home"/>
                         <MenuItem Header="Options">
-                            <MenuItem Header="Settings" Foreground="#242526" Click="SettingsMenuItem_Click">
+                            <MenuItem Header="Settings" 
+                                      Foreground="#242526" 
+                                      Click="SettingsMenuItem_Click">
                                 <MenuItem.Icon>
                                     <TextBox FontFamily="Segoe MDL2 Assets"
                                              Text="&#xE713;"
@@ -60,28 +90,32 @@
                             </MenuItem>
                         </MenuItem>
                         <MenuItem Header="Sales">
-                            <MenuItem Header="Product List" Foreground="#242526">
+                            <MenuItem Header="Product List" 
+                                      Foreground="#242526">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="Segoe MDL2 Assets"
                                                Text="&#xE71D;"
                                                HorizontalAlignment="Center"/>
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Header="Import Inventory" Foreground="#242526">
+                            <MenuItem Header="Import Inventory" 
+                                      Foreground="#242526">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="Segoe MDL2 Assets"
                                                Text="&#xE896;"
                                                HorizontalAlignment="Center"/>
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Header="Export Inventory" Foreground="#242526">
+                            <MenuItem Header="Export Inventory" 
+                                      Foreground="#242526">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="Segoe MDL2 Assets"
                                                Text="&#xE898;"
                                                HorizontalAlignment="Center"/>
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Header="Payment Options" Foreground="#242526">
+                            <MenuItem Header="Payment Options" 
+                                      Foreground="#242526">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="Segoe MDL2 Assets"
                                                Text="&#xE8C7;"
@@ -90,21 +124,24 @@
                             </MenuItem>
                         </MenuItem>
                         <MenuItem Header="Warehouse">
-                            <MenuItem Header="Warehouse Management" Foreground="#242526">
+                            <MenuItem Header="Warehouse Management" 
+                                      Foreground="#242526">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="Segoe MDL2 Assets"
                                                Text="&#xE80F;"
                                                HorizontalAlignment="Center"/>
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Header="Categories" Foreground="#242526">
+                            <MenuItem Header="Categories" 
+                                      Foreground="#242526">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="Segoe MDL2 Assets"
                                                Text="&#xE8EC;"
                                                HorizontalAlignment="Center"/>
                                 </MenuItem.Icon>
                             </MenuItem>
-                            <MenuItem Header="Location Prefix" Foreground="#242526">
+                            <MenuItem Header="Location Prefix" 
+                                      Foreground="#242526">
                                 <MenuItem.Icon>
                                     <TextBlock FontFamily="Segoe MDL2 Assets"
                                                Text="&#xE707;"
@@ -114,25 +151,69 @@
                         </MenuItem>
                         <MenuItem Header="Users" />
                         <MenuItem Header="Statistics">
-                            <MenuItem Header="Sales Statistics" Foreground="#242526"/>
-                            <MenuItem Header="Warehouse I/O Statistics" Foreground="#242526"/>
-                            <MenuItem Header="Overview" Foreground="#242526"/>
+
+                            <MenuItem Header="Sales Statistics" 
+                                      Foreground="#242526"/>
+
+                            <MenuItem Header="Warehouse I/O Statistics" 
+                                      Foreground="#242526"/>
+
+                            <MenuItem Header="Overview" 
+                                      Foreground="#242526"/>
                         </MenuItem>
                         <MenuItem Header="Help">
-                            <MenuItem Header="About" Foreground="#242526"/>
-                            <MenuItem Header="Documentation" Foreground="#242526"/>
+                            <MenuItem Header="About" 
+                                      Foreground="#242526"/>
+
+                            <MenuItem Header="Documentation" 
+                                      Foreground="#242526"/>
                         </MenuItem>
                     </Menu>
                 </DockPanel>
 
-                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MinimizeButton" FontFamily="Segoe MDL2 Assets" Content="&#xE921;" Width="50" Height="30" Click="MinimizeButton_Click"/>
-                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="MaximizeButton" FontFamily="Segoe MDL2 Assets" Content="&#xE71A;" Width="50" Height="30" Click="MaximizeButton_Click"/>
-                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" x:Name="CloseButton" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Width="50" Height="30" Click="CloseButton_Click"/>
+                <StackPanel Grid.Row="0" 
+                            Grid.Column="2" 
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <!--Minimize Button-->
+                    <Button Background="Transparent" 
+                            BorderBrush="Transparent" 
+                            Foreground="White" 
+                            x:Name="MinimizeButton" 
+                            FontFamily="Segoe MDL2 Assets" 
+                            Content="&#xE921;" 
+                            Width="50" 
+                            Height="30" 
+                            Click="MinimizeButton_Click"/>
+                    <!--Maximize Button-->
+                    <Button Background="Transparent" 
+                            BorderBrush="Transparent" 
+                            Foreground="White" 
+                            x:Name="MaximizeButton" 
+                            FontFamily="Segoe MDL2 Assets" 
+                            Content="&#xE71A;"
+                            Width="50" 
+                            Height="30" 
+                            Click="MaximizeButton_Click"/>
+                    <!--Close Button-->
+                    <Button Background="Transparent" 
+                            BorderBrush="Transparent" 
+                            Foreground="White" 
+                            x:Name="CloseButton" 
+                            FontFamily="Segoe MDL2 Assets" 
+                            Content="&#xE711;" 
+                            Width="50" 
+                            Height="30" 
+                            Click="CloseButton_Click"/>
                 </StackPanel>
                 
                 <!--The rest of the content goes here-->
-                <Border Grid.Row="1" Background="{DynamicResource Default-Light}" BorderThickness="3" CornerRadius="0,0,8,8" Padding="5">
+                <Border Grid.Row="1" 
+                        Grid.Column="0" 
+                        Background="{DynamicResource Default-Bg-Brush-Dark}" 
+                        BorderThickness="3" 
+                        CornerRadius="0,0,8,8" 
+                        Padding="5">
                     <Grid>
                         <avalonDock:DockingManager x:Name="DockingManager">
 
@@ -147,10 +228,15 @@
                                             <!-- A LayoutAnchorable is a dockable tool window. -->
                                             <avalonDock:LayoutAnchorable Title="Toolbox" ContentId="toolbox">
                                                 <StackPanel Margin="10">
-                                                    <Button Content="Button" Margin="2"/>
-                                                    <Button Content="CheckBox" Margin="2"/>
-                                                    <Button Content="Label" Margin="2"/>
-                                                    <TextBlock Text="More tools..." Margin="2,10,2,2" FontWeight="Bold"/>
+                                                    <Button Content="Button" 
+                                                            Margin="2"/>
+                                                    <Button Content="CheckBox" 
+                                                            Margin="2"/>
+                                                    <Button Content="Label"
+                                                            Margin="2"/>
+                                                    <TextBlock Text="More tools..." 
+                                                               Margin="2,10,2,2"
+                                                               FontWeight="Bold"/>
                                                 </StackPanel>
                                             </avalonDock:LayoutAnchorable>
                                         </avalonDock:LayoutAnchorablePane>
@@ -163,7 +249,8 @@
                                         <avalonDock:LayoutDocumentPaneGroup>
                                             <avalonDock:LayoutDocumentPane>
                                                 <!-- A LayoutDocument is typically a tabbed document in the center. -->
-                                                <avalonDock:LayoutDocument Title="Workspace Canvas" ContentId="main_canvas">
+                                                <avalonDock:LayoutDocument Title="Workspace Canvas" 
+                                                                           ContentId="main_canvas">
                                                     <Grid Background="#FFE0E0E0">
                                                         <TextBlock Text="This is the main canvas area." 
                                                        HorizontalAlignment="Center" 
@@ -172,8 +259,12 @@
                                                        Foreground="Gray"/>
                                                     </Grid>
                                                 </avalonDock:LayoutDocument>
-                                                <avalonDock:LayoutDocument Title="Another Document" ContentId="doc2">
-                                                    <TextBox Text="You can edit text here." AcceptsReturn="True" TextWrapping="Wrap" Padding="5"/>
+                                                <avalonDock:LayoutDocument Title="Another Document" 
+                                                                           ContentId="doc2">
+                                                    <TextBox Text="You can edit text here."
+                                                             AcceptsReturn="True" 
+                                                             TextWrapping="Wrap" 
+                                                             Padding="5"/>
                                                 </avalonDock:LayoutDocument>
                                             </avalonDock:LayoutDocumentPane>
                                         </avalonDock:LayoutDocumentPaneGroup>
@@ -183,9 +274,11 @@
                                     <!-- Right Anchorable Pane Group -->
                                     <avalonDock:LayoutAnchorablePaneGroup DockWidth="250">
                                         <avalonDock:LayoutAnchorablePane>
-                                            <avalonDock:LayoutAnchorable Title="Properties" ContentId="properties">
+                                            <avalonDock:LayoutAnchorable Title="Properties" 
+                                                                         ContentId="properties">
                                                 <Border Padding="5">
-                                                    <TextBlock Text="Properties for selected item..." TextWrapping="Wrap"/>
+                                                    <TextBlock Text="Properties for selected item..." 
+                                                               TextWrapping="Wrap"/>
                                                 </Border>
                                             </avalonDock:LayoutAnchorable>
                                         </avalonDock:LayoutAnchorablePane>

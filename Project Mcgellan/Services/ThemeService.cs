@@ -13,7 +13,7 @@ namespace Project_Mcgellan.Services
                 var dict = new ResourceDictionary
                 {
                     Source = new Uri(
-                        $"pack://application:,,,/Project_Mcgellan;component/Dictionary1.xaml",
+                        $"pack://application:,,,/Project_Mcgellan;component/Themes/{themeKey}.xaml",
                         UriKind.Absolute)
                 };
 
